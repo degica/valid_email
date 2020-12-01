@@ -11,7 +11,7 @@ class MxValidator < ActiveModel::EachValidator
 
   def validate_each(record,attribute,value)
     r = ValidateEmail.mx_valid?(value)
-    record.errors.add attribute, (options[:message] || I18n.t(:invalid, :scope => "valid_email.validations.email")) unless r
+    record.errors.add attribute, (options[:message] || I18n.t('activerecord.errors.messages.invalid_email')) unless r
 
     r
   end
